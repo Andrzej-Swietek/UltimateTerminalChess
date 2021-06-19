@@ -3,11 +3,12 @@
 //
 
 #ifndef ULTIMATETERMINALCHESS_FIELD_H
+
+#define ULTIMATETERMINALCHESS_FIELD_H
 #include <iostream>
 #include <vector>
 #include <utility>
-#define ULTIMATETERMINALCHESS_FIELD_H
-
+using namespace std;
 
 class Field {
     int x, y;

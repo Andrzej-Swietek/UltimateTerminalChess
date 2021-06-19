@@ -3,10 +3,10 @@
 //
 
 #ifndef ULTIMATETERMINALCHESS_PAWN_H
+#define ULTIMATETERMINALCHESS_PAWN_H
 #include <iostream>
 #include <vector>
-#define ULTIMATETERMINALCHESS_PAWN_H
-
+using namespace std;
 
 class Pawn: public Field {
     int x, int y;
@@ -16,11 +16,6 @@ class Pawn: public Field {
     public:
     Pawn(int x, int y, int x0, int y0,bool color);
     ~Pawn();
-
-
-
-
-
 };
 
 
