@@ -3,4 +3,12 @@ project(ultimateTerminalChess)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(ultimateTerminalChess main.cpp)
+add_executable(ultimateTerminalChess main.cpp
+        Field.cpp Field.h
+        Board.cpp Board.h
+        King.cpp King.h
+        Queen.cpp Queen.h
+        Knight.cpp Knight.h
+        Rook.cpp Rook.h
+        Pawn.cpp Pawn.h
+        )
