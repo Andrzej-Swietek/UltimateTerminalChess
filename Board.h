@@ -1,20 +1,21 @@
-//
-// Created by Grand on 2021-06-19.
-//
+
 
 #ifndef ULTIMATETERMINALCHESS_BOARD_H
 #define ULTIMATETERMINALCHESS_BOARD_H
 #include <iostream>
 #include <vector>
+#include "Field.h"
+
 using namespace std;
 
 class Board {
 public:
-    Board();
+     Board();
     ~Board();
     vector<vector<Field>>fields; // klasa pole - poli
     void print();
     void turn(); // tu będzie parametr jaki ruch
+    bool checkmate= false;
 
 };
 #endif //ULTIMATETERMINALCHESS_BOARD_H

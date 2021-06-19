@@ -6,15 +6,17 @@
 #define ULTIMATETERMINALCHESS_KNIGHT_H
 #include <iostream>
 #include <vector>
+#include "Field.h"
+
 using namespace std;
 
 class Knight: public Field {
-    int x, int y;
-    int x0, int y0;
+    int x=0; int y=0;
+    int x0=0; int y0=0;
     bool color;
-    string type = Knight;
+    string type = "Knight";
 public:
-    Knight(int x, int y, int x0, int y0,bool color);
+    Knight( int x, int y, int x0, int y0, bool color);
     ~Knight();
 };
 

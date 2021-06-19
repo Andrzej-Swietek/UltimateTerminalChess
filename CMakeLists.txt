@@ -11,4 +11,6 @@ add_executable(ultimateTerminalChess main.cpp
         Knight.cpp Knight.h
         Rook.cpp Rook.h
         Pawn.cpp Pawn.h
+        Bishop.cpp
+        Bishop.h
         )

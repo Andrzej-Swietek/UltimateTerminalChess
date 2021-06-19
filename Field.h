@@ -13,9 +13,9 @@ using namespace std;
 class Field {
     int x, y;
 public:
-    Field(int x;int y);
-    ~Field();
-    pair<int,int>position();
+     Field(int x,int y);
+     virtual ~Field();
+    virtual pair<int,int>position();
 };
 
 

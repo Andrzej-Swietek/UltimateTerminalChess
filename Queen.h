@@ -6,15 +6,19 @@
 #define ULTIMATETERMINALCHESS_QUEEN_H
 #include <iostream>
 #include <vector>
+#include "Field.h"
+
 using namespace std;
 
 class Queen: public Field {
-    int x, int y;
-    int x0, int y0;
+
+
+    int x=0; int y=0;
+    int x0=0; int y0=0;
     bool color;
-    string type = Queen;
+    string type = "Queen";
 public:
-    Queen(int x, int y, int x0, int y0,bool color);
+    Queen( int x, int y, int x0, int y0, bool color);
     ~Queen();
 };
 
