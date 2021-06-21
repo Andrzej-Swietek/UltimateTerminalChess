@@ -24,6 +24,7 @@ void Board::print() {
      int a = 0;
      for( vector<Field>row : fields ) { 
          for ( auto f : row )
+         {   
             if(a % 8 == 0) cout << "-------------------------------" <<endl;
             if ( a % 8 == 0) cout << "|| ";
 //        cout << f.name + " | " ; // TODO : dorobić dla kazdej klasy pole nazwa
