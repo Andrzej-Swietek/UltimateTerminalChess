@@ -21,12 +21,15 @@ Board::~Board(){
 
 void Board::print() {
 
-
-    //    for( char a: this.boardArr ) { // nwm jak chcemy tego boarda przechowywacczy objekty w wektorze czy chary
-//        if(a % 8 == 0) cout << "-------------------------------" <<endl;
-//        if ( a % 8 == 0) cout << "|| ";
-//        cout << a + " | " ;
-//        if ( a % 8 == 7) cout << " ||";
-//    }
+     int a = 0;
+     for( vector<Field>row : fields ) { 
+         for ( auto f : row )
+            if(a % 8 == 0) cout << "-------------------------------" <<endl;
+            if ( a % 8 == 0) cout << "|| ";
+//        cout << f.name + " | " ; // TODO : dorobić dla kazdej klasy pole nazwa
+            if ( a % 8 == 7) cout << " ||";
+         }
+         a++;
+   }
 
 }
