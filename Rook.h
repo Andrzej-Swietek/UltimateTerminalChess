@@ -17,8 +17,10 @@ class Rook: public Field {
     int x0=0;
     int y0=0;
     bool color;
-    string type = "Rook";
+
+
 public:
+    string name = "R";
     Rook( int x, int y, int x0, int y0, bool color);
 
     ~Rook();

@@ -16,8 +16,9 @@ class Queen: public Field {
     int x=0; int y=0;
     int x0=0; int y0=0;
     bool color;
-    string type = "Queen";
+
 public:
+    string name = "Q";
     Queen( int x, int y, int x0, int y0, bool color);
     ~Queen();
 };

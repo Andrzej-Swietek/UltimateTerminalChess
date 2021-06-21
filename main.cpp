@@ -1,10 +1,28 @@
 #include <iostream>
 #include "Board.h"
 using namespace std;
+void getinput(Board *b){
+    string move = "";
+    cout<<"White turn:"<<endl;
+
+        cin>>move;
+
+
+    getchar();
+    b->print();
+    if(!b->checkmate){
+        getinput(b);
+
+    }
+
+}
 int main() {
     Board *board = new Board();
-    cout<<board->fields[5][5].position().first;
-    std::cout << "Hello, World!" << std::endl;
+    board->print();
+    getinput(board);
+
+    //cout<<board->fields[5][5].position().first;
+
     return 0;
 }
 //  TODO: class Board, class Piece, class Pawn, class Figure: Kingg ,Queen, Bish, Rook, Knight

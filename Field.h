@@ -1,6 +1,4 @@
-//
-// Created by Grand on 2021-06-19.
-//
+
 
 #ifndef ULTIMATETERMINALCHESS_FIELD_H
 
@@ -12,10 +10,14 @@ using namespace std;
 
 class Field {
     int x, y;
+
+
 public:
-     Field(int x,int y);
+    Field(int x,int y);
      virtual ~Field();
     virtual pair<int,int>position();
+
+    string name;
 };
 
 
