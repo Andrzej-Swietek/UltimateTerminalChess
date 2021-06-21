@@ -7,8 +7,9 @@ void getinput(Board *b){
 
         cin>>move;
 
-
     getchar();
+    b->turn(move);
+
     b->print();
     if(!b->checkmate){
         getinput(b);

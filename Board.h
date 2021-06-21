@@ -14,7 +14,7 @@ public:
     ~Board();
     vector<vector<Field>>fields; // klasa pole - poli
     void print();
-    void turn(); // tu będzie parametr jaki ruch
+    void turn(string move); // tu będzie parametr jaki ruch
     bool checkmate= false;
 
 };

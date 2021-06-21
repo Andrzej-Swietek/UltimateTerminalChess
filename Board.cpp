@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 #include <typeinfo>
 #include "Board.h"
@@ -50,7 +51,15 @@ Board::Board(){
 Board::~Board(){
     cout << "Board destroyed" <<endl;
 }
+void Board::turn(string move) {
 
+    if ( move.find("-") == string::npos ) { cout << "Wrong Format" <<endl;return; }
+    if ( move.length() != 5 ) { cout << "Wrong Format" <<endl;return; }
+    string co = move.substr(0, move.find("-"));
+    string gdzie = move.substr(move.find("-")+1, move.length());
+    cout << co << "    |   " << gdzie <<endl;
+    //cout<<fields[int(co[1])][int(co[0])-int('a')].name;
+}
 void Board::print() {
 
     int a = 0;
