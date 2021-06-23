@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Board.h"
+#include <cstdlib>
 using namespace std;
+
 void getinput(Board *b){
     string move = "";
     cout<<"White turn:"<<endl;
@@ -9,11 +11,10 @@ void getinput(Board *b){
 
     getchar();
     b->turn(move);
-
+    system("clear");
     b->print();
     if(!b->checkmate){
         getinput(b);
-
     }
 
 }

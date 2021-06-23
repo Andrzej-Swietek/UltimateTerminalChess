@@ -13,9 +13,9 @@ using namespace std;
 class Pawn: public Field {
     int x=0; int y=0;
     int x0=0; int y0=0;
-    bool color;
 
     public:
+    bool color;
     string name = "P" ;
     Pawn( int x, int y, int x0, int y0, bool color);
     ~Pawn();

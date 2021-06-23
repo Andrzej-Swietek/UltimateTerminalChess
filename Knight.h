@@ -13,9 +13,10 @@ using namespace std;
 class Knight: public Field {
     int x=0; int y=0;
     int x0=0; int y0=0;
-    bool color;
+
 
 public:
+    bool color;
     string name = "N";
     Knight( int x, int y, int x0, int y0, bool color);
     ~Knight();

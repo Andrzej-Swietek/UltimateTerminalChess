@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <sstream>
+
 using namespace std;
 #include <typeinfo>
 #include "Board.h"
@@ -54,11 +56,52 @@ Board::~Board(){
 void Board::turn(string move) {
 
     if ( move.find("-") == string::npos ) { cout << "Wrong Format" <<endl;return; }
-    if ( move.length() != 5 ) { cout << "Wrong Format" <<endl;return; }
-    string co = move.substr(0, move.find("-"));
-    string gdzie = move.substr(move.find("-")+1, move.length());
-    cout << co << "    |   " << gdzie <<endl;
-    //cout<<fields[int(co[1])][int(co[0])-int('a')].name;
+    else if ( move.length() != 5 ) { cout << "Wrong Format" <<endl;return; }
+    else {
+        string what = move.substr(0, move.find("-"));
+        string where = move.substr(move.find("-")+1, move.length());
+        cout << what << "    |   " << where << endl;
+
+        string sWhatY = &what[1];
+        int whatY = stoi(sWhatY)-1;
+        int whatX = int(what[0]) - int('a');
+
+//        cout << whatX <<"  "<< whatY << endl;
+        cout<< "[ Chosen Piece ]: " <<fields[ whatY ][ whatX ].name << endl;
+
+
+        if ( fields[ whatY ][ whatX ].name == "R" ){
+
+        } else if (fields[ whatY ][ whatX ].name == "N") {
+
+        } else if (fields[ whatY ][ whatX ].name == "B") {
+
+        } else if (fields[ whatY ][ whatX ].name == "Q") {
+
+        } else if (fields[ whatY ][ whatX ].name == "K") {
+
+        } else if (fields[ whatY ][ whatX ].name == "P") {
+            /**
+             * dir                               - direction up/down [int]
+             * fields[ whatY + dir ][ whatX ]    - the field where we want to move
+             * fields[ whatY ][ whatX ]          - the field with a piece we are moving
+             */
+
+            string sWhereY = &what[1];
+            int whereY = stoi(sWhereY)-1;
+            int whereX = int(where[0]) - int('a');
+
+            int dir = ( fields[ whatY ][ whatX ].color )? 1 : -1;
+            if ( fields[ whatY + dir ][ whatX ].name == "E" )
+            {
+                cout << "Move" <<endl;
+                // fields[ whatY + dir ][ whatX ] = new Pawn
+            }
+        } else { cout << "No piece there" <<endl; }
+
+    }
+
+
 }
 void Board::print() {
 
@@ -67,8 +110,6 @@ void Board::print() {
 
          for ( Field f : row )
          {
-
-
             if(a % 8 == 0) cout <<endl<< "-----------------------------------" <<endl;
             if ( a % 8 == 0) cout << "|| ";
             if(a%8!=7)

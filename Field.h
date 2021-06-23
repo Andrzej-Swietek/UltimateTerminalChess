@@ -18,6 +18,7 @@ public:
     virtual pair<int,int>position();
 
     string name;
+    bool color;
 };
 
 
