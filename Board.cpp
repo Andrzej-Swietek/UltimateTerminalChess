@@ -11,6 +11,10 @@ using namespace std;
 #include "Knight.h"
 #include "Bishop.h"
 #include "Rook.h"
+#include "Empty.h"
+
+#include "colors.h"
+
 Board::Board(){
     for( int i= 0 ; i< 8; i++){
         vector<Field> tmp;
@@ -40,8 +44,8 @@ Board::Board(){
                tmp[j].name = "K";
            }
            else{
-               tmp.push_back(Field(j,i));
-               tmp[j].name = " ";
+               tmp.push_back( Empty(j, i, j, i, (i > 4)) );
+               tmp[j].name = "E";
            }
 
         }
@@ -87,15 +91,19 @@ void Board::turn(string move) {
              * fields[ whatY ][ whatX ]          - the field with a piece we are moving
              */
 
-            string sWhereY = &what[1];
+            string sWhereY = &where[1];
             int whereY = stoi(sWhereY)-1;
             int whereX = int(where[0]) - int('a');
 
-            int dir = ( fields[ whatY ][ whatX ].color )? 1 : -1;
-            if ( fields[ whatY + dir ][ whatX ].name == "E" )
+            int dir = ( fields[ whatY ][ whatX ].color )? -1 : 1;
+            cout << "[ move ]: " << fields[ whatY ][ whatX ].name << endl;
+            if ( fields[ whereY ][ whereX ].name == "E" )
             {
-                cout << "Move" <<endl;
-                // fields[ whatY + dir ][ whatX ] = new Pawn
+
+                 // Podmianka pól
+                    swap(fields[ whereY ][ whereX ],fields[ whatY ][ whatX ]);
+
+                 cout << fields[ whereY ][ whereX ].name <<endl;
             }
         } else { cout << "No piece there" <<endl; }
 
@@ -110,14 +118,16 @@ void Board::print() {
 
          for ( Field f : row )
          {
-            if(a % 8 == 0) cout <<endl<< "-----------------------------------" <<endl;
+            if(a % 8 == 0) cout <<endl<<BOLDMAGENTA<< "-----------------------------------" <<RESET<<endl;
             if ( a % 8 == 0) cout << "|| ";
+            if (!f.color) cout << RED;
             if(a%8!=7)
-                cout << f.name + " | " ; // TODO : dorobić dla kazdej klasy pole nazwa
-            if ( a % 8 == 7) cout <<f.name + " ||";
+                cout << f.name + " | " ;
+            if ( a % 8 == 7) cout << f.name + " ||";
+             cout << RESET;
              a++;
          }
 
    }
-    cout <<endl<< "-----------------------------------" <<endl;
+    cout <<endl<< BOLDMAGENTA << "-----------------------------------"<< RESET <<endl;
 }
