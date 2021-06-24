@@ -18,34 +18,43 @@ using namespace std;
 Board::Board(){
     for( int i= 0 ; i< 8; i++){
         vector<Field> tmp;
+        bool color = ( i >= 4 )? true : false;
+        cout << "KOLOR : " << color << endl;
         for( int j= 0 ; j< 8; j++){
            if(i==1 || i==6) {
-               tmp.push_back(Pawn(j, i, j, i, (i > 4)));
+               tmp.push_back(Pawn(j, i, j, i, color));
                tmp[j].name = "P";
+               tmp[j].color = color;
            }
            else if((i == 0 || i == 7) && (j == 0 || j == 7) ){
-               tmp.push_back(Rook(j, i, j, i, (i > 4)));
+               tmp.push_back(Rook(j, i, j, i, color));
                tmp[j].name = "R";
+               tmp[j].color = color;
            }
            else if((i==0 || i==7) && (j==1 || j==6)){
-               tmp.push_back(Knight(j, i, j, i, (i > 4)));
+               tmp.push_back(Knight(j, i, j, i, color));
                tmp[j].name = "N";
+               tmp[j].color = color;
            }
            else if((i==0 || i==7)&&(j==2 || j==5)){
-               tmp.push_back(Bishop(j, i, j, i, (i > 4)));
+               tmp.push_back(Bishop(j, i, j, i, color));
                tmp[j].name = "B";
+               tmp[j].color = color;
            }
            else if((i==0 && j==3)||(i==7 && j==3)){
-               tmp.push_back(Queen(j, i, j, i, (i > 4)));
+               tmp.push_back(Queen(j, i, j, i, color));
                tmp[j].name = "Q";
+               tmp[j].color = color;
            }
            else if((i==0 && j==4)||(i==7 && j==4)){
-               tmp.push_back(King(j, i, j, i, (i > 4)));
+               tmp.push_back(King(j, i, j, i, color));
                tmp[j].name = "K";
+               tmp[j].color = color;
            }
            else{
-               tmp.push_back( Empty(j, i, j, i, (i > 4)) );
+               tmp.push_back( Empty(j, i, j, i, color) );
                tmp[j].name = "E";
+               tmp[j].color = color;
            }
 
         }
@@ -120,11 +129,15 @@ void Board::print() {
          {
             if(a % 8 == 0) cout <<endl<<BOLDMAGENTA<< "-----------------------------------" <<RESET<<endl;
             if ( a % 8 == 0) cout << "|| ";
-            if (!f.color) cout << RED;
-            if(a%8!=7)
-                cout << f.name + " | " ;
-            if ( a % 8 == 7) cout << f.name + " ||";
+             if (f.name != "E"){
+                 if (f.color == true) cout << RED;
+                 else if (f.color != true) cout << GREEN;
+             }
+             if (f.name == "E") cout << " ";
+             else cout << f.name;
              cout << RESET;
+            if( a % 8 != 7) cout << " | " ;
+            if ( a % 8 == 7) cout <<" ||";
              a++;
          }
 
