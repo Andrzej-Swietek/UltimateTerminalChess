@@ -7,6 +7,7 @@ Pawn::Pawn( int x, int y, int x0, int y0, bool color) : Field(x0, y0) {
     this->y0=y0;
     this->color=color;
     this->name="P";
+    this->isMoved = false;
 
 
 }

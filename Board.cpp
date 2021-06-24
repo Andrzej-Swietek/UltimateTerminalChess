@@ -1,6 +1,10 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <algorithm>
+#include <vector>
+#include <cmath>
+#include <cstdlib>
 
 using namespace std;
 #include <typeinfo>
@@ -19,7 +23,7 @@ Board::Board(){
     for( int i= 0 ; i< 8; i++){
         vector<Field> tmp;
         bool color = ( i >= 4 )? true : false;
-        cout << "KOLOR : " << color << endl;
+        //cout << "KOLOR : " << color << endl;
         for( int j= 0 ; j< 8; j++){
            if(i==1 || i==6) {
                tmp.push_back(Pawn(j, i, j, i, color));
@@ -88,6 +92,113 @@ void Board::turn(string move) {
         } else if (fields[ whatY ][ whatX ].name == "N") {
 
         } else if (fields[ whatY ][ whatX ].name == "B") {
+            string sWhereY = &where[1];
+            int whereY = stoi(sWhereY)-1;
+            int whereX = int(where[0]) - int('a');
+            if(whereX>7 || whereX<0 || whereY>7 || whereY<0){
+                cout<<RED<<"Wrong format."<<RESET<<endl;
+            }
+            //int px=whatX;
+            //int py=whatY;
+            //bool czyWszystkoOk = false;
+
+
+
+            cout<<whatY<<endl;
+            cout<<whatX<<endl;
+            cout<<whereY<<endl;
+            cout<<whereX<<endl;
+
+/* 1 cw
+     cout << "CW1 "<<endl;
+            while ( px < 7 && py > 0 ) {
+                if(py==whereY && px==whereX){
+
+                    czyWszystkoOk= true;
+                    break;
+                }
+                else{
+                    py--;
+                    px++;
+                }
+            }
+             px=whatX;
+             py=whatY;
+// 2 cw
+            cout << "CW2 "<<endl;
+            while ( px > 0 && py > 0 ) {
+                if(px==whereX && py==whereY){
+                    czyWszystkoOk= true;
+                    break;
+                }
+                else{
+                    px--;
+                    py--;
+                }
+            }
+             px=whatX;
+             py=whatY;
+// 3 cw
+            cout << "CW3 "<<endl;
+            while ( px > 0 && py < 7 ) {
+                if(px==whereX && py==whereY){
+                    czyWszystkoOk= true;
+                    break;
+                }
+                else{
+                    px--;
+                    py++;
+                }
+            }
+             px=whatX;
+             py=whatY;
+// 4 cw
+            cout << "CW4 "<<endl;
+            while ( px < 7 && py < 7 ) {
+                if(px==whereX && py==whereY){
+                    czyWszystkoOk= true;
+                    break;
+                }
+                else{
+                    px++;
+                    py++;
+                }
+            }
+
+            if(czyWszystkoOk==0 ){
+                cout<<"Wrong format..."<<endl;
+                return;
+            }
+*/
+
+            int tmp_x = whatX;
+            int tmp_y = whatY;
+            if(abs(whereX-whatX)!=abs(whereY-whatY)){
+                cout<<RED<<"Wrong format"<<RESET<<endl;
+                return;
+            }
+            else{
+                int dX = (whatX > whereX)? -1 : 1;
+                int dY = (whatY > whereY)? -1 : 1;
+                tmp_x += dX;   tmp_y += dY;
+                while( tmp_x != whereX && tmp_y != whereY) {
+                    if( fields[tmp_y][tmp_x].name != "E" ) {
+                        cout << RED << "ERROR" << RESET << endl; return; }
+                    tmp_x += dX;   tmp_y += dY;
+
+                }
+                fields[whereY][whereX] = fields[whatY][whatX];
+                fields[whatY][whatX].name = "E";
+
+            }
+
+// Delta X i Y
+
+
+
+
+
+
 
         } else if (fields[ whatY ][ whatX ].name == "Q") {
 
@@ -113,6 +224,7 @@ void Board::turn(string move) {
                     swap(fields[ whereY ][ whereX ],fields[ whatY ][ whatX ]);
 
                  cout << fields[ whereY ][ whereX ].name <<endl;
+                 cout<<fields[whatY][whatX].name<<endl;
             }
         } else { cout << "No piece there" <<endl; }
 
@@ -121,26 +233,27 @@ void Board::turn(string move) {
 
 }
 void Board::print() {
-
+    cout <<BOLDMAGENTA <<  "    | A | B | C | D | E | F | G | H |" << RESET;
     int a = 0;
-     for( vector<Field>row : fields ) {
+    for( vector<Field>row : fields ) {
 
-         for ( Field f : row )
-         {
-            if(a % 8 == 0) cout <<endl<<BOLDMAGENTA<< "-----------------------------------" <<RESET<<endl;
-            if ( a % 8 == 0) cout << "|| ";
-             if (f.name != "E"){
-                 if (f.color == true) cout << RED;
-                 else if (f.color != true) cout << GREEN;
-             }
-             if (f.name == "E") cout << " ";
-             else cout << f.name;
-             cout << RESET;
+        for ( Field f : row )
+        {
+            if(a % 8 == 0) cout <<endl<<BOLDMAGENTA<< "-----------------------------------------" <<RESET<<endl;
+            if ( a % 8 == 0) cout << "| "<< a/8+1 << " | ";
+            if (f.name != "E"){
+                if (f.color == true) cout << RED;
+                else if (f.color != true) cout << GREEN;
+            }
+            if (f.name == "E") cout << "E";
+            else cout << f.name;
+            cout << RESET;
             if( a % 8 != 7) cout << " | " ;
-            if ( a % 8 == 7) cout <<" ||";
-             a++;
-         }
+            if ( a % 8 == 7) cout << " | "<< a/8+1 << " | ";
+            a++;
+        }
 
-   }
-    cout <<endl<< BOLDMAGENTA << "-----------------------------------"<< RESET <<endl;
+    }
+    cout <<endl<< BOLDMAGENTA << "-----------------------------------------"<< RESET <<endl;
+    cout <<BOLDMAGENTA <<  "    | A | B | C | D | E | F | G | H |" << RESET <<endl;
 }

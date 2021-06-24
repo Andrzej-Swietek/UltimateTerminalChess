@@ -17,7 +17,7 @@ public:
      virtual ~Field();
     virtual pair<int,int>position();
 
-    string name;
+    string name="E";
     bool color;
 };
 
