@@ -106,6 +106,9 @@ void Board::turn(string move) {
                         return;}
                     tmp_y += dY;
                 }
+                if(fields[whereY][whereX].name!="E" && fields[whereY][whereX].color==fields[whatY][whatX].color){
+                    cout << RED << "ERROR" << RESET << endl;
+                    return;}
                 fields[whereY][whereX] = fields[whatY][whatX];
                 fields[whatY][whatX].name = "E";
 
@@ -123,6 +126,9 @@ void Board::turn(string move) {
                         return;}
                     tmp_x += dX;
                 }
+                if(fields[whereY][whereX].name!="E" && fields[whereY][whereX].color==fields[whatY][whatX].color){
+                    cout << RED << "ERROR" << RESET << endl;
+                    return;}
                 fields[whereY][whereX] = fields[whatY][whatX];
                 fields[whatY][whatX].name = "E";
             }
@@ -216,6 +222,7 @@ void Board::turn(string move) {
                 cout << RED << "Wrong format" << RESET << endl;
                 return;}
             else {
+
                 int dX = (whatX > whereX) ? -1 : 1;
                 int dY = (whatY > whereY) ? -1 : 1;
                 tmp_x += dX;
@@ -224,8 +231,12 @@ void Board::turn(string move) {
                     if (fields[tmp_y][tmp_x].name != "E") {
                         cout << RED << "ERROR" << RESET << endl;
                         return;}
-                tmp_x += dX;
-                tmp_y += dY;}
+                    tmp_x += dX;
+                    tmp_y += dY;}
+                if(fields[whereY][whereX].name!="E" && fields[whereY][whereX].color==fields[whatY][whatX].color){
+                    cout << RED << "ERROR" << RESET << endl;
+                    return;}
+
                 fields[whereY][whereX] = fields[whatY][whatX];
                 fields[whatY][whatX].name = "E";
 
@@ -246,6 +257,9 @@ void Board::turn(string move) {
                         return;}
                     tmp_y += dY;
                 }
+                if(fields[whereY][whereX].name!="E" && fields[whereY][whereX].color==fields[whatY][whatX].color){
+                    cout << RED << "ERROR" << RESET << endl;
+                    return;}
                 fields[whereY][whereX] = fields[whatY][whatX];
                 fields[whatY][whatX].name = "E";
 
@@ -263,6 +277,9 @@ void Board::turn(string move) {
                         return;}
                     tmp_x += dX;
                 }
+                if(fields[whereY][whereX].name!="E" && fields[whereY][whereX].color==fields[whatY][whatX].color){
+                    cout << RED << "ERROR" << RESET << endl;
+                    return;}
                 fields[whereY][whereX] = fields[whatY][whatX];
                 fields[whatY][whatX].name = "E";
             }
@@ -280,6 +297,10 @@ void Board::turn(string move) {
                         return;}
                     tmp_x += dX;
                     tmp_y += dY;}
+                if(fields[whereY][whereX].name!="E" && fields[whereY][whereX].color==fields[whatY][whatX].color){
+                    cout << RED << "ERROR" << RESET << endl;
+                    return;}
+
                 fields[whereY][whereX] = fields[whatY][whatX];
                 fields[whatY][whatX].name = "E";
 
