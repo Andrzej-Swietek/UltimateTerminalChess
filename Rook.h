@@ -1,7 +1,3 @@
-//
-// Created by Grand on 2021-06-19.
-//
-
 #ifndef ULTIMATETERMINALCHESS_ROOK_H
 #define ULTIMATETERMINALCHESS_ROOK_H
 #include <iostream>
@@ -23,6 +19,8 @@ public:
     bool color;
     string name = "R";
     Rook( int x, int y, int x0, int y0, bool color);
+    bool r_move();
+
 
     ~Rook();
 };

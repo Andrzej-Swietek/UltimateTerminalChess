@@ -1,6 +1,4 @@
-//
-// Created by Grand on 2021-06-19.
-//
+
 
 #ifndef ULTIMATETERMINALCHESS_KNIGHT_H
 #define ULTIMATETERMINALCHESS_KNIGHT_H

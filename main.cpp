@@ -2,15 +2,24 @@
 #include "Board.h"
 #include <cstdlib>
 using namespace std;
-
+int n=0;
 void getinput(Board *b){
     string move = "";
-    cout<<"White turn:"<<endl;
 
-        cin>>move;
+    if(n%2==0)
+        cout<<"White turn:"<<endl;
+    else
+        cout<<"Black turn:"<<endl;
+
+
+    cin>>move;
 
     getchar();
-    b->turn(move);
+    //b->turn(move);
+    //cout<<  b->turn(move);
+    n += (  b->turn(move) == 0 )? 1 : 0;
+
+
     system("clear");
     b->print();
     if(!b->checkmate){
@@ -23,8 +32,5 @@ int main() {
     board->print();
     getinput(board);
 
-    //cout<<board->fields[5][5].position().first;
-
     return 0;
 }
-//  TODO: class Board, class Piece, class Pawn, class Figure: Kingg ,Queen, Bish, Rook, Knight

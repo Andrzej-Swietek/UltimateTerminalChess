@@ -1,6 +1,4 @@
-//
-// Created by Andrzej Świętek on 6/23/21.
-//
+
 
 #ifndef ULTIMATETERMINALCHESS_COLORS_H
 #define ULTIMATETERMINALCHESS_COLORS_H

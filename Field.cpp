@@ -1,5 +1,4 @@
 
-
 #include "Field.h"
 
 Field::Field(int x,int y) {

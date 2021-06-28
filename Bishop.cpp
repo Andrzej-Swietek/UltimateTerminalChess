@@ -10,5 +10,5 @@ Bishop::Bishop( int x, int y, int x0, int y0, bool color) : Field(x0, y0) {
 
 }
 Bishop::~Bishop() {
-    cout<<"Bishop destroyed"<<endl;
+    //cout<<"Bishop destroyed"<<endl;
 }

@@ -1,6 +1,3 @@
-//
-// Created by Andrzej Świętek on 6/23/21.
-//
 
 #ifndef ULTIMATETERMINALCHESS_EMPTY_H
 #define ULTIMATETERMINALCHESS_EMPTY_H

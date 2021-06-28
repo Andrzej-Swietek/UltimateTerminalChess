@@ -14,11 +14,13 @@ class King: public Field {
 
 
 public:
+
     bool isMoved = false;
     bool color;
     string name = "K";
     King( int x, int y, int x0, int y0, bool color);
     ~King();
+
 };
 
 

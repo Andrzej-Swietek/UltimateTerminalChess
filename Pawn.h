@@ -1,7 +1,3 @@
-//
-// Created by Grand on 2021-06-19.
-//
-
 #ifndef ULTIMATETERMINALCHESS_PAWN_H
 #define ULTIMATETERMINALCHESS_PAWN_H
 #include <iostream>

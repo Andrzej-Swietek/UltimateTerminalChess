@@ -1,7 +1,3 @@
-//
-// Created by Grand on 2021-06-19.
-//
-
 #ifndef ULTIMATETERMINALCHESS_QUEEN_H
 #define ULTIMATETERMINALCHESS_QUEEN_H
 #include <iostream>

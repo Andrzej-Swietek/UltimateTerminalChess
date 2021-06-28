@@ -1,5 +1,4 @@
 
-
 #ifndef ULTIMATETERMINALCHESS_BOARD_H
 #define ULTIMATETERMINALCHESS_BOARD_H
 #include <iostream>
@@ -14,7 +13,9 @@ public:
     ~Board();
     vector<vector<Field>>fields; // klasa pole - poli
     void print();
-    void turn(string move); // tu będzie parametr jaki ruch
+    bool check(int whoseTurn, int x_w, int y_w, int x_b, int y_b);
+    int turn(string move); // tu będzie parametr jaki ruch
+    int turnBack(int prev_x, int prev_y, int curr_x, int curr_y,string t);
     bool checkmate= false;
 
 };
